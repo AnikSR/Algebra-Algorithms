@@ -30,14 +30,14 @@ int main(){
 }
 
 
-/*************************************************************
- * Function Name:	Index calcultor.						 *
- * Description	:	Matrix can be adeuately represented by   *
- *					2d arrays. But referencing 2d arrays is  *
- *					quarky in C. So rather matrix are here   *
- *					represented by 1d array. Hence the index *
- *					calculated manually.					 *
- *************************************************************/
+/*****************************************************************
+ * Function Name: 	Index calcultor.			 *
+ * Description	: 	Matrix can be adeuately represented by   *
+ *		  	2d arrays. But referencing 2d arrays is  *
+ *			quarky in C. So rather matrix are here   *
+ *			represented by 1d array. Hence the index *
+ *			calculated manually.			 *
+ *****************************************************************/
 int icalc(int row_number, int row_length, int member_number){
 	return row_number*row_length+member_number;
 }
@@ -53,9 +53,9 @@ void print_matrix(float *mtrx, int rowlen, int columnlen){
 
 
 /*  Rank of a matrix is the highest number of linearly independent vectors
-	that can be formed from the rows/columns of a matrix. However, rank of
-	the input matrix is taken as the minimal of the number of row and the
-	number of column of this matrix. This huristic will cause erronious
+	that can be formed from the rows/columns of a matrix. However, rank
+	of the input matrix is taken as the minimal of the number of row and
+	the number of column of this matrix. This huristic will cause erronious
 	result for some inputs as the rank of a matrix can be equal of less than
 	the number determined here. */
 int min(int num1, int num2){
@@ -67,15 +67,15 @@ int min(int num1, int num2){
 
 
 /****************************************************************************************
- * Following three function performs three elementary row operations. 					*
- * 1. Function		: multiply_rowwide.													*
- *	  Description	: Multiplies the specified row with a scalar.						*
- *																						*
- * 2. Function		: row_exchange.														*
- *	  Description	: Exchange two rows with one another.								*
- *																						*
- * 3. Function		: row_arithmetic.													*
- *    Description	: Add scalar multiple of one row with another.						*
+ * Following three function performs three elementary row operations. 			*
+ * 1. Function		: multiply_rowwide.						*
+ *	  Description	: Multiplies the specified row with a scalar.			*
+ *											*
+ * 2. Function		: row_exchange.							*
+ *	  Description	: Exchange two rows with one another.				*
+ *											*
+ * 3. Function		: row_arithmetic.						*
+ *    Description	: Add scalar multiple of one row with another.			*
  ****************************************************************************************/
 void multiply_rowwide(float *mtrx, int row_num, int row_len, float scalar){
 	for(int i=0; i<row_len; i++)
