@@ -68,10 +68,10 @@ int min(int num1, int num2){
 /****************************************************************************************
  * Following three function performs three elementary row operations. 			*
  * 1. Function		: multiply_rowwide.						*
- *	  Description	: Multiplies the specified row with a scalar.			*
+ *    Description	: Multiplies the specified row with a scalar.			*
  *											*
  * 2. Function		: row_exchange.							*
- *	  Description	: Exchange two rows with one another.				*
+ *    Description	: Exchange two rows with one another.				*
  *											*
  * 3. Function		: row_arithmetic.						*
  *    Description	: Add scalar multiple of one row with another.			*
