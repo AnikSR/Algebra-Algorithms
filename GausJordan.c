@@ -53,11 +53,10 @@ void print_matrix(float *mtrx, int rowlen, int columnlen){
 
 
 /*  Rank of a matrix is the highest number of linearly independent vectors
-	that can be formed from the rows/columns of a matrix. However, rank
-	of the input matrix is taken as the minimal of the number of row and
-	the number of column of this matrix. This huristic will cause erronious
-	result for some inputs as the rank of a matrix can be equal of less than
-	the number determined here. */
+    that can be formed from the rows/columns of a matrix. However, here rank 
+    is taken as the minimal of the number of row and the number of column of
+    this matrix. This huristic will cause erronious result for some inputs as
+    the rank of a matrix can be equal of less than the number determined here. */
 int min(int num1, int num2){
 	if(num1 < num2)
 		return num1;
