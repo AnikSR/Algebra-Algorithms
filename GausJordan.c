@@ -107,11 +107,14 @@ void Gaus_Jordan(float *mtrx, int row_len, int column_len){
 	int rank = min(row_len, column_len);
 
 	for(int i=0; i<rank; i++){
-		if(mtrx[icalc(i, row_len, i)] == 0)
-			row_exchange(mtrx, i, i+1, row_len);
+		// If the leading element of a row is 0, exchange the row with the row bellow it.
+        	for(int j=1; mtrx[icalc(i, row_len, i)] == 0 || i+j<column_len; j++)
+            		row_exchange(mtrx, i, i+j, row_len);
 
+		// If the leading element is not 1, then divide the row with the leading element.
 		multiply_rowwide(mtrx, i, row_len, 1/mtrx[icalc(i, row_len, i)]);
 
+		// Multiply the current row with the leading element of subsequent rows and substracts it from them.
 		for(int j=0; j<column_len; j++)
 			if(i != j)
 				row_arithmetic(mtrx, row_len, j, i, mtrx[icalc(j, row_len, i)]);
