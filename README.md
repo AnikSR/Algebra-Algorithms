@@ -1,2 +1,2 @@
-# Matrix-Algorithms
-Algorithms on different matrix operations.
+# Algebra-Algorithms
+Algorithms on different Algebraic operations.
