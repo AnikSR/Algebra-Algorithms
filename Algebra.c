@@ -5,9 +5,13 @@ extern int r1, r2, *coefficient;
 /* Extended Euclid's algorithm to determine the coefficients such that the linear combination produces the gcd. */
 void gcdCoefficient(int r1, int r2, int * coefficient){
 	int r, q, s, t, s1=1, s2=0, t1=0, t2=1;
+	int setp_no = 1;
 
 	/* The first integer have to be the biggest one for this algorithm to work.
 	   So, exchange the integers if the second one is the biggest. */
+
+	puts("\nThe complete coefficient table:");
+    printf("First number, r1 =\t%d\nSecond number, r2 =\t%d\n\n", r1, r2);
 
 	while(r!=0){
 		// Determining the reminder and the quotient of this round.
@@ -18,6 +22,9 @@ void gcdCoefficient(int r1, int r2, int * coefficient){
 		s = s1 - q*s2;
 		t = t1 - q*t2;
 
+		if(r!=0)
+            printf("Step %d: r=%d\ts=%d\tt=%d\n", step_no, r, s, t);
+
 		// Update the input for the next round.
 		r1 = r2;
 		r2 = r;
@@ -27,6 +34,8 @@ void gcdCoefficient(int r1, int r2, int * coefficient){
 
 		t1 = t2;
 		t2 = t;
+
+		step_no++;
 	}
 
 	coefficient[0] = r1;	// The greatest common divisor.
