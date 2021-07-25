@@ -2,28 +2,33 @@
 /* Extended Euclid's algorithm to determine the coefficients such that the linear combination produces the gcd. */
 #include<stdio.h>
 
-void gcdCoefficient(int, int, int *);
+void EuclidX(int, int, int *);
 
 int main(void){
 	int num1, num2, temp=0;
 	int coefficient[3] = { 0, 0, 0 };
 
+	puts("\n");
+	puts("This program calculates the gcd and the smallest coefficient satisfying Bezout's identity ps + qt = gcd(p,q)");
+	puts("In the output:");
+	puts("The 's' stands for the coefficient of the first number inserted.");
+	puts("The 't' stands for the coefficient of the second number inserted.");
+	puts("==============================================================================================================");
+
 	printf("Insert two integers: ");
 	scanf("%d %d", &num1, &num2);
 
-	printf("Before: num1 = %d, num2 = %d\n", num1, num2);
 	if(num2>num1){
 		temp = num2;
 		num2 = num1;
 		num1 = temp;
 		temp = 1;
 	}
-	printf("After: num1 = %d, num2 = %d\n", num1, num2);
 
 	getchar();		// Eat up any stray character length input hanging in the stdin.
 	fflush(stdin);	// Flush out any unwanted character in the stdin.
 
-	gcdCoefficient(num1, num2, coefficient);
+	EuclidX(num1, num2, coefficient);
 
 	if(temp == 1){
 		printf("For %d and %d; s = %d, t = %d.\n", num2, num1, coefficient[2], coefficient[1]);
@@ -37,7 +42,7 @@ int main(void){
 }
 
 
-void gcdCoefficient(int r1, int r2, int * coefficient){
+void EuclidX(int r1, int r2, int * coefficient){
 	int r, q, s, t, s1=1, s2=0, t1=0, t2=1;
 
 	/* The first integer have to be the biggest one for this algorithm to work.
@@ -64,6 +69,6 @@ void gcdCoefficient(int r1, int r2, int * coefficient){
 	}
 
 	coefficient[0] = r1;	// The greatest common divisor.
-	coefficient[1] = s1;		// Coefficient for the first integer.
-	coefficient[2] = t1;		// Coefficient for the second integer.
+	coefficient[1] = s1;	// Coefficient for the first integer.
+	coefficient[2] = t1;	// Coefficient for the second integer.
 }
